@@ -1,5 +1,5 @@
 // @ts-ignore
-import { genChartByAiAsyncMqUsingPOST } from '@/services/mobi/chartController';
+import { genChartByAiAsyncUsingPOST } from '@/services/mobi/chartController';
 import { UploadOutlined } from '@ant-design/icons';
 import { Button, Card, Form, Input, message, Select, Space, Upload } from 'antd';
 import { useForm } from 'antd/es/form/Form';
@@ -30,8 +30,8 @@ const AddChartAsync: React.FC = () => {
       file: undefined,
     };
     try {
-      //const res = await genChartByAiAsyncUsingPOST(params, {}, values.file.file.originFileObj);
-      const res = await genChartByAiAsyncMqUsingPOST(params, {}, values.file.file.originFileObj);
+      const res = await genChartByAiAsyncUsingPOST(params, {}, values.file.file.originFileObj);
+      // const res = await genChartByAiAsyncMqUsingPOST(params, {}, values.file.file.originFileObj);
       if (!res?.data) {
         message.error('分析失败');
       } else {
